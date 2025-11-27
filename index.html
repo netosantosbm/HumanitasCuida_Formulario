@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contratação de Plano de Saúde | Dualite Health</title>
+    <meta name="description" content="Formulário de contratação de plano de saúde online." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="pb-24">
+    
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="heart-pulse" class="text-primary h-8 w-8"></i>
+          <span class="text-xl font-bold tracking-tight text-slate-900">Dualite<span class="text-primary">Health</span></span>
+        </div>
+        <div class="text-sm text-slate-500 hidden sm:block">
+          Ambiente Seguro <i data-lucide="lock" class="inline-block h-3 w-3 ml-1"></i>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      
+      <form id="contractForm" class="space-y-8">
+        
+        <!-- Intro -->
+        <div class="text-center mb-10">
+          <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Finalize sua Contratação</h1>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">Preencha os dados abaixo para garantir a proteção da sua saúde e de sua família.</p>
+        </div>
+
+        <!-- Seção 1: Informações do Titular -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg text-primary">
+              <i data-lucide="user"></i>
+            </div>
+            <h2 class="text-lg font-semibold">Informações do Titular</h2>
+          </div>
+          
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="md:col-span-2">
+              <label for="nome">Nome Completo *</label>
+              <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div>
+              <label for="nascimento">Data de Nascimento *</label>
+              <input type="date" id="nascimento" name="nascimento" required>
+            </div>
+
+            <div>
+              <label for="sexo">Sexo *</label>
+              <select id="sexo" name="sexo" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="cpf">CPF *</label>
+              <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" required>
+            </div>
+
+            <div>
+              <label for="rg">RG / CNH *</label>
+              <input type="text" id="rg" name="rg" required placeholder="Número do documento">
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="mae">Nome Completo da Mãe *</label>
+              <input type="text" id="mae" name="mae" required>
+            </div>
+
+            <div>
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required placeholder="seu@email.com">
+            </div>
+
+            <div>
+              <label for="telefone">Telefone de Contato *</label>
+              <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(00) 00000-0000" required>
+            </div>
+
+            <!-- Endereço -->
+            <div class="md:col-span-2 pt-4 border-t border-slate-100">
+              <h3 class="text-base font-semibold mb-4 flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> Endereço
+              </h3>
+            </div>
+
+            <div>
+              <label for="cep">CEP *</label>
+              <div class="relative">
+                <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000" required>
+                <div id="cep-loading" class="absolute right-3 top-2.5 hidden">
+                  <i data-lucide="loader-2" class="animate-spin w-5 h-5 text-primary"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-1"></div> <!-- Spacer -->
+
+            <div class="md:col-span-1">
+              <label for="rua">Rua</label>
+              <input type="text" id="rua" name="rua" readonly class="bg-slate-50 cursor-not-allowed">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="numero">Número *</label>
+                <input type="text" id="numero" name="numero" required>
+              </div>
+              <div>
+                <label for="complemento">Complemento</label>
+                <input type="text" id="complemento" name="complemento">
+              </div>
+            </div>
+
+            <div>
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro" readonly class="bg-slate-50 cursor-not-allowed">
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+              <div class="col-span-2">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" readonly class="bg-slate-50 cursor-not-allowed">
+              </div>
+              <div>
+                <label for="uf">UF</label>
+                <input type="text" id="uf" name="uf" readonly class="bg-slate-50 cursor-not-allowed">
+              </div>
+            </div>
+
+            <!-- Documentos -->
+            <div class="md:col-span-2 pt-4 border-t border-slate-100">
+              <h3 class="text-base font-semibold mb-4 flex items-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i> Documentação
+              </h3>
+              <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-4">
+                <p class="text-sm text-blue-800">
+                  <i data-lucide="info" class="inline w-4 h-4 mr-1"></i>
+                  Envie fotos legíveis do seu RG/CNH, CPF e Comprovante de Residência.
+                </p>
+              </div>
+              <label for="docs_titular">Anexar Documentos (PDF, JPG, PNG)</label>
+              <input type="file" id="docs_titular" name="docs_titular" multiple accept="image/*,.pdf">
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção 2: Escolha do Plano -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg text-primary">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h2 class="text-lg font-semibold">Escolha seu Plano</h2>
+          </div>
+
+          <div class="p-6">
+            <!-- Tipo de Contratação -->
+            <div class="mb-8">
+              <label class="text-base font-semibold text-slate-900 mb-3 block">Tipo de Contratação</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label class="relative flex items-center p-4 border rounded-xl cursor-pointer hover:bg-slate-50 transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:bg-primary/5 has-[:checked]:border-primary">
+                  <input type="radio" name="tipo_contratacao" value="individual" class="peer sr-only" checked>
+                  <div class="flex items-center gap-3">
+                    <div class="bg-white p-2 rounded-full border border-slate-200 peer-checked:border-primary peer-checked:text-primary text-slate-400">
+                      <i data-lucide="user"></i>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-slate-900">Individual</div>
+                      <div class="text-sm text-slate-500">Apenas para o titular</div>
+                    </div>
+                  </div>
+                  <div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 text-primary">
+                    <i data-lucide="check-circle-2"></i>
+                  </div>
+                </label>
+
+                <label class="relative flex items-center p-4 border rounded-xl cursor-pointer hover:bg-slate-50 transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:bg-primary/5 has-[:checked]:border-primary">
+                  <input type="radio" name="tipo_contratacao" value="familiar" class="peer sr-only">
+                  <div class="flex items-center gap-3">
+                    <div class="bg-white p-2 rounded-full border border-slate-200 peer-checked:border-primary peer-checked:text-primary text-slate-400">
+                      <i data-lucide="users"></i>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-slate-900">Familiar</div>
+                      <div class="text-sm text-slate-500">Titular + Dependentes</div>
+                    </div>
+                  </div>
+                  <div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 text-primary">
+                    <i data-lucide="check-circle-2"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cards dos Planos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Plano Básico -->
+              <label class="relative border rounded-xl p-6 cursor-pointer hover:shadow-md transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:border-primary plan-card">
+                <input type="radio" name="plano" value="basico" class="sr-only">
+                <div class="text-center mb-4">
+                  <h3 class="text-xl font-bold text-slate-800">Básico</h3>
+                  <div class="mt-2">
+                    <span class="text-3xl font-bold text-slate-900 price-display" data-individual="20" data-familiar="35">R$ 20</span>
+                    <span class="text-sm text-slate-500">/mês</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Consultas Regionais</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Exames Simples</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Coparticipação</li>
+                </ul>
+                <div class="w-full py-2 rounded-lg border border-slate-200 text-center text-sm font-medium text-slate-600 group-hover:border-primary group-hover:text-primary transition-colors">
+                  Selecionar
+                </div>
+              </label>
+
+              <!-- Plano Premium -->
+              <label class="relative border rounded-xl p-6 cursor-pointer hover:shadow-md transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:border-primary plan-card">
+                <input type="radio" name="plano" value="premium" class="sr-only">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                  Popular
+                </div>
+                <div class="text-center mb-4">
+                  <h3 class="text-xl font-bold text-slate-800">Premium</h3>
+                  <div class="mt-2">
+                    <span class="text-3xl font-bold text-slate-900 price-display" data-individual="35" data-familiar="50">R$ 35</span>
+                    <span class="text-sm text-slate-500">/mês</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Consultas Nacionais</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Exames Complexos</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Sem Coparticipação</li>
+                </ul>
+                <div class="w-full py-2 rounded-lg border border-slate-200 text-center text-sm font-medium text-slate-600 group-hover:border-primary group-hover:text-primary transition-colors">
+                  Selecionar
+                </div>
+              </label>
+
+              <!-- Plano Golden -->
+              <label class="relative border rounded-xl p-6 cursor-pointer hover:shadow-md transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:border-primary plan-card">
+                <input type="radio" name="plano" value="golden" class="sr-only">
+                <div class="text-center mb-4">
+                  <h3 class="text-xl font-bold text-slate-800">Golden</h3>
+                  <div class="mt-2">
+                    <span class="text-3xl font-bold text-slate-900 price-display" data-individual="65" data-familiar="85">R$ 65</span>
+                    <span class="text-sm text-slate-500">/mês</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Cobertura Internacional</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Quarto Privativo</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Reembolso em 24h</li>
+                </ul>
+                <div class="w-full py-2 rounded-lg border border-slate-200 text-center text-sm font-medium text-slate-600 group-hover:border-primary group-hover:text-primary transition-colors">
+                  Selecionar
+                </div>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção 3: Dependentes (Condicional) -->
+        <section id="section-dependentes" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hidden">
+          <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="bg-primary/10 p-2 rounded-lg text-primary">
+                <i data-lucide="users"></i>
+              </div>
+              <h2 class="text-lg font-semibold">Inclusão de Dependentes</h2>
+            </div>
+            <button type="button" id="btn-add-dependente" class="text-sm bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+              <i data-lucide="plus" class="w-4 h-4"></i> Adicionar
+            </button>
+          </div>
+          
+          <div id="dependentes-container" class="p-6 space-y-6">
+            <!-- Os dependentes serão inseridos aqui via JS -->
+            <div class="text-center text-slate-500 py-4 italic" id="no-dependents-msg">
+              Nenhum dependente adicionado. Clique em "Adicionar" acima.
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção 4: Pagamento -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
+            <div class="bg-primary/10 p-2 rounded-lg text-primary">
+              <i data-lucide="credit-card"></i>
+            </div>
+            <h2 class="text-lg font-semibold">Pagamento</h2>
+          </div>
+
+          <div class="p-6">
+            <div class="bg-slate-50 rounded-xl p-6 mb-6 flex justify-between items-center border border-slate-200">
+              <div>
+                <p class="text-sm text-slate-500">Total a pagar</p>
+                <p class="text-3xl font-bold text-slate-900" id="total-price-display">R$ 0,00</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-medium text-slate-900" id="selected-plan-name">Nenhum plano selecionado</p>
+                <p class="text-xs text-slate-500" id="selected-plan-type">-</p>
+              </div>
+            </div>
+
+            <h3 class="text-sm font-medium text-slate-700 mb-4">Escolha a forma de pagamento:</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Asaas -->
+              <label class="relative flex items-center p-4 border rounded-xl cursor-pointer hover:bg-slate-50 transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:border-primary">
+                <input type="radio" name="payment_method" value="asaas" class="peer sr-only">
+                <div class="flex items-center gap-4 w-full">
+                  <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold text-xs shrink-0">
+                    ASAAS
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">Asaas</div>
+                    <div class="text-xs text-slate-500">Cartão de Crédito, Boleto ou Pix</div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 text-primary">
+                  <i data-lucide="check-circle-2"></i>
+                </div>
+              </label>
+
+              <!-- Sicoob -->
+              <label class="relative flex items-center p-4 border rounded-xl cursor-pointer hover:bg-slate-50 transition-all has-[:checked]:ring-2 has-[:checked]:ring-primary has-[:checked]:border-primary">
+                <input type="radio" name="payment_method" value="sicoob" class="peer sr-only">
+                <div class="flex items-center gap-4 w-full">
+                  <div class="w-12 h-12 bg-teal-800 rounded-lg flex items-center justify-center text-white font-bold text-xs shrink-0">
+                    SICOOB
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">Sicoob</div>
+                    <div class="text-xs text-slate-500">Débito em conta ou Boleto</div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 text-primary">
+                  <i data-lucide="check-circle-2"></i>
+                </div>
+              </label>
+            </div>
+            
+            <div class="mt-4 text-xs text-slate-400 text-center">
+              * A integração real com os gateways de pagamento requer processamento no servidor. Este é um ambiente de demonstração.
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção 5: Termos -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-start gap-3 mb-6">
+              <div class="flex h-6 items-center">
+                <input id="termos" name="termos" type="checkbox" required class="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary">
+              </div>
+              <div class="text-sm leading-6">
+                <label for="termos" class="font-medium text-slate-900">Termo de Adesão e Ciência</label>
+                <p class="text-slate-500">Declaro que li e concordo com as condições contratuais e a legislação vigente (Lei nº 9.656/98). As informações prestadas são verdadeiras.</p>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full bg-primary hover:bg-sky-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/20 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 text-lg">
+              <span>Finalizar Contratação</span>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </section>
+
+      </form>
+    </main>
+
+    <!-- Template para Dependente (Hidden) -->
+    <template id="dependente-template">
+      <div class="dependente-item bg-slate-50 rounded-xl p-4 border border-slate-200 relative animate-fade-in">
+        <button type="button" class="btn-remove-dependente absolute top-4 right-4 text-red-500 hover:text-red-700 p-1 hover:bg-red-50 rounded">
+          <i data-lucide="trash-2" class="w-4 h-4"></i>
+        </button>
+        <h4 class="text-sm font-bold text-slate-700 mb-4 uppercase tracking-wider">Dependente <span class="dep-counter">1</span></h4>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="md:col-span-2">
+            <label>Nome do Dependente *</label>
+            <input type="text" name="dep_nome[]" required placeholder="Nome completo">
+          </div>
+          
+          <div>
+            <label>Grau de Parentesco *</label>
+            <select name="dep_parentesco[]" required>
+              <option value="">Selecione</option>
+              <option value="conjuge">Cônjuge/Companheiro(a)</option>
+              <option value="filho">Filho(a)</option>
+              <option value="pai_mae">Pai/Mãe</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Data de Nascimento *</label>
+            <input type="date" name="dep_nascimento[]" required>
+          </div>
+
+          <div>
+            <label>CPF *</label>
+            <input type="text" name="dep_cpf[]" class="cpf-mask" maxlength="14" placeholder="000.000.000-00" required>
+          </div>
+
+          <div>
+            <label>Documentação de Vínculo</label>
+            <input type="file" name="dep_docs[]" accept="image/*,.pdf">
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
